@@ -1,4 +1,4 @@
-## Marketplace
+# Marketplace
 
 ## Tech stack
 ### React, Node, Redux, MaterialUI, HTML, CSS.
