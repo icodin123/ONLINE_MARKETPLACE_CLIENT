@@ -5,8 +5,8 @@
 
 ## How to run
 
-### Run the following commands to get started:
-#### `npm install`
-#### `npm start`
+#### 1. Navigate to the project folder in your terminal.
+#### 2. run `npm install`
+#### 3. run `npm start`
 
 #### Client will run on localhost, port 3000.
