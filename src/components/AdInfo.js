@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         padding: "20px",
+        background:"rgb(240, 219, 176)",
     },
 }));
 
@@ -66,11 +67,17 @@ const AdInfo = props => {
                         <Card className={classes.card}>
                             <Typography variant="h4" align="center" color="textPrimary" gutterBottom>
                                 <b>{ad ? ad.name : "Loading..."}</b>
-                            </Typography><br />
-                            <br />
-                            <Typography align="right" variant="h6" color="textPrimary" gutterBottom>
-                                <b>Posted by {ad.owner.name}</b>
                             </Typography>
+                            {ad.owner._id === props.auth.user.id &&
+                                <Typography align="right" variant="h6" color="textPrimary" gutterBottom>
+                                    <b>Posted by you!</b>
+                                </Typography>
+                            }
+                            {ad.owner._id !== props.auth.user.id &&
+                                <Typography align="right" variant="h6" color="textPrimary" gutterBottom>
+                                    <b>Posted by {ad.owner.name}</b>
+                                </Typography>
+                            }
                             <img alt="" className={classes.itemImg} src={`data:image/png;base64,${arrayBufferToBase64(ad.img.data.data)}`} />
                             <br /><br />
                             <Typography variant="h5" color="textPrimary" gutterBottom>
@@ -79,7 +86,7 @@ const AdInfo = props => {
                             <Typography variant="h6" color="textPrimary" gutterBottom>
                                 <b>{ad.description}</b>
                             </Typography>
-                            <br /><br />
+                            <br />
                             {props.auth.user.id && ad.owner._id !== props.auth.user.id &&
                                 <Box textAlign="center">
                                     <RouterLink to={'/ad/' + params.id + '/user/' + ad.owner._id + '/chat'}>
@@ -87,13 +94,6 @@ const AdInfo = props => {
                                             <b>Reply to this ad</b>
                                         </Button>
                                     </RouterLink>
-                                </Box>
-                            }
-                            {ad.owner._id === props.auth.user.id &&
-                                <Box textAlign="center">
-                                    <Typography variant="h6" color="textPrimary" gutterBottom>
-                                        <b>This is your ad!</b>
-                                    </Typography>
                                 </Box>
                             }
                         </Card>
