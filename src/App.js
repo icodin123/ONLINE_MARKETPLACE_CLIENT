@@ -11,7 +11,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import "./App.css";
 import NewAdForm from "./components/NewAdForm";
-import MyAdList from "./components/layout/MyAds";
+import MyAdList from "./components/MyAds";
 import AdInfo from "./components/AdInfo";
 import Chat from "./components/Chat";
 import ContactList from "./components/ContactList";

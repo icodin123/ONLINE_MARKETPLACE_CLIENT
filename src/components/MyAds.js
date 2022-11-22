@@ -1,5 +1,5 @@
 import React from "react";
-import AdList from "../AdList";
+import AdList from "./AdList";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({

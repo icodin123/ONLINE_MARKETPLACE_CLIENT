@@ -111,7 +111,7 @@ const MultilineTextFields = props => {
                         <Card className={classes.card}>
                             <Box textAlign="center">
                                 <Typography gutterBottom variant="h4" component="h2">
-                                    <b>Image preview</b>
+                                    <b>Post new ad</b>
                                 </Typography>
                             </Box>
                             <br />

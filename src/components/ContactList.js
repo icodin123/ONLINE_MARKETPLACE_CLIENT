@@ -35,9 +35,7 @@ const ContactList = props => {
         }
         fetchContacts()
             .catch(console.error);
-    }, [])
-
-    let seen_ad_ids = [];
+    }, []);
 
     return (
         <div>
@@ -45,18 +43,18 @@ const ContactList = props => {
                 {!doneLoading ? <LoadingScreen /> : <React.Fragment>
                     <br />
                     <Typography variant="h4" align="center" color="textPrimary" gutterBottom>
-                        <b>Recent chats</b>
+                        <b>Messages</b>
                     </Typography><br />
-                    {chats.map((user, index) => user._id !== props.auth.user.id && !seen_ad_ids.includes(user.adId) && seen_ad_ids.push(user.adId) && (
+                    {chats.map((chat, index) => (
                         <Box sx={{ minWidth: 275 }} key={"chat_" + index}>
                             <Card variant="outlined">
-                                <RouterLink to={'/ad/' + user.adId + '/user/' + user._id + '/chat'}>
+                                <RouterLink to={'/ad/' + chat.ad._id + '/user/' + (chat.user1._id !== props.auth.user.id ? chat.user1._id : chat.user2._id) + '/chat'}>
                                     <CardContent>
                                         <Typography variant="h5" component="div" style={{ color: "black" }}>
-                                            {user.name}
+                                            {chat.lastMessage}
                                         </Typography>
-                                        <Typography sx={{ mb: 1.5 }} style={{ color: "black" }}>
-                                            {"for ad '" + user.adName + "'"}
+                                        <Typography variant="body1" component="div" style={{ color: "black" }}>
+                                            <b>chat with {chat.user1._id !== props.auth.user.id ? chat.user1.name : chat.user2.name} for ad ' {chat.ad.name} '</b>
                                         </Typography>
                                     </CardContent>
                                 </RouterLink>
