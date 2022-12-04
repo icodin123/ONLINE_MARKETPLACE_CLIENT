@@ -79,7 +79,7 @@ const AdInfo = props => {
                             }
                             <img alt="" className={classes.itemImg} src={`data:image/png;base64,${arrayBufferToBase64(ad.img.data.data)}`} />
                             <br /><br />
-                            <Typography variant="h5" color="textPrimary" gutterBottom>
+                            <Typography variant="h4" color="textPrimary" gutterBottom>
                                 <b>Description:</b>
                             </Typography>
                             <Typography variant="h6" color="textPrimary" gutterBottom>
