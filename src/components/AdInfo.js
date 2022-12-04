@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         padding: "20px",
-        background:"rgb(240, 219, 176)",
     },
 }));
 
@@ -70,7 +69,7 @@ const AdInfo = props => {
                             </Typography>
                             {ad.owner._id === props.auth.user.id &&
                                 <Typography align="right" variant="h6" color="textPrimary" gutterBottom>
-                                    <b>Posted by you!</b>
+                                    <b>Your ad</b>
                                 </Typography>
                             }
                             {ad.owner._id !== props.auth.user.id &&
@@ -84,7 +83,7 @@ const AdInfo = props => {
                                 <b>Description:</b>
                             </Typography>
                             <Typography variant="h6" color="textPrimary" gutterBottom>
-                                <b>{ad.description}</b>
+                                {ad.description}
                             </Typography>
                             <br />
                             {props.auth.user.id && ad.owner._id !== props.auth.user.id &&
